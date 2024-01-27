@@ -36,14 +36,26 @@ class ReservationTicket:
         return content
 
 
+class CreditCard:
+    def __init__(self,number,expiration,holder,cvc):
+        self.number = number
+        self.expiration = expiration
+        self.holder = holder
+        self.cvc = cvc
+
+    def validate(self):
+        return True
+
 print(df)
 hotel_Id = input("Enter hotel Id:")
 hotel = Hotel(hotel_Id)
 
 if hotel.available():
-    hotel.book()
-    customer_name = input("Enter customer name:")
-    reservation = ReservationTicket(customer_name, hotel)
-    print(reservation.generate())
+    credit_card = CreditCard(number="1234512920",expiration="12/26",holder="JOHN SMITH",cvc="123")
+    if credit_card.validate()
+        hotel.book()
+        customer_name = input("Enter customer name:")
+        reservation = ReservationTicket(customer_name, hotel)
+        print(reservation.generate())
 else:
     print("Hotel is not available")
